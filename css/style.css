@@ -177,7 +177,6 @@ p.subline{
 }
 .project-descr-full-wrapper{
 	height:95%;
-	
 }
 
 /* Controlling text content */
@@ -185,10 +184,35 @@ p.subline{
 	line-height: 40px;
 	padding-bottom: 5px;
 	font-size: 25px;
-	padding-left: 12%;
-	padding-right: 12%;
-	padding-top: 50px;
+	padding-left: 10%;
+	padding-right: 10%;
 }
+
+/* Controlling text content */
+.project-descr-full-content h1{
+	padding-left: 10%;
+}
+
+/* Controlling text content */
+.project-descr-full-content img{
+	padding-left: 10%;
+	max-width: 100%;
+}
+
+/* Controlling text content */
+.project-descr-full-content a{
+	color: black;
+}
+
+/* Controlling text content */
+.project-descr-full-content h3{
+	padding-left: 10%;
+	padding-top: 20px;
+	color: #0AC1FD;
+	font-style: bold;
+	font-size: 45px;
+}
+
 .full-view .thumbs-wrapper{
 	margin:5px 5px 5px 20px;
 	float:right;
