@@ -91,7 +91,7 @@
 
 			<a href="" class="more_link">
 				<div class="item block" data-bgimage="images/1.jpg">
-					<div class="thumbs-wrapper"><img align="center" src="images/1.jpg"/></div>
+					<div class="thumbs-wrapper"><img align="center" src="images/cat.jpg"/></div>
 					<h2 class="title">Project: GitHub Data Challenge</h2>
 					<div id="intro"><p>A data analytics project aimed to study the popularity of several thousands GitHub's repositories.</p></div>
 					<div class="project-descr">
@@ -250,21 +250,43 @@
 						| event_time | date         | YES  |     | NULL    |       |
 						+------------+--------------+------+-----+---------+-------+
 						</code></pre>
-
 					</div>
 				</div>
 			</a>
 
 			<a href="" class="more_link">
 				<div class="item block" data-bgimage="images/1.jpg">
-					<div class="thumbs-wrapper"><img align="center" src="images/1.jpg"/></div>
+					<div class="thumbs-wrapper"><img align="center" src="images/msn.png"/></div>
 					<h2 class="title">Project: Scraping MSN Money</h2>
 					<div id="intro"><p>An attempt at learning Python, web scraping, and interpreting financial statements all at once.</p></div>
 					<div class="project-descr">
-						<a href="http://www.lvtran.com/wp-content/uploads/2014/01/image.jpeg" target="blank"><img style="float: left; padding-left: 12%; padding-right: 14px; padding-top: 50px;" alt="long tran ucsd" src="http://www.lvtran.com/wp-content/uploads/2014/01/image.jpeg" width="328" height="400" /></a>
-						<p>My name is <b>4</b>, a 19-year-old working toward a Bachelor of Science. I live in La Jolla and am a Chancellor’s Scholar at University of California, San Diego, where I study <b>Computer Science and Business</b>.
-						<br><br>I like computers, LEGO’s, and Starbucks. I am fluent in Vietnamese, know a tiny bit of Japanese and Spanish, and also speak Java, Python, C#, C/C++, HTML/CSS, and PHP. My many hobbies include making websites & iOS applications, solving number theory problems on <a style="color: #3399ff;" href="http://www.projecteuler.net">projecteuler.net</a>, reading tech news & investment/finance books, watching <a style="color: #3399ff;" href="http://abc.go.com/shows/shark-tank/">Shark Tank</a> &amp; <a style="color: #3399ff;" href="http://www.nbc.com/the-celebrity-apprentice">The Apprentice</a>, coding, blogging, traveling(!), looking sharp, and making coffee. 
-						<br><br>By 2016, I will have obtained my Bachelor's, a solid technical background, an awesome resume (see below!), and a vast, professional network. I am utilizing (almost) every minute of my time working toward this future through internships, research, and course works.</p>
+						<h1>Scraping MSN Money</h1>
+						<a href=""><img src="http://events.lvtran.com/wp-content/uploads/2014/07/msnmoney.png" alt="msnmoney" width="333" height="200" style="float:left; margin-right:15px;"/></a>
+						<p>I recently picked up my summer reading book, "Warren Buffet and the Interpretation of Financial Statements", by Mary Buffett and David Clark, which basically detailed how Warren Buffett relied on financial statements to decide where to put his money. I am fairly fond of looking over columns of numbers on financial statements, but not so much computing them. I would be more than happy to let a <strong>Python</strong> script do the heavy lifting for me. Through this project, I hope to get better at web scraping and learn a thing or two about reading financial statements.</p>
+						<br><p>After searching for "MSN Money API", I was prompted to the quotes report page of Advanced Photonix Inc... There was no API readily available, which inspired the web-scraping aspect of this project. There were quite a few companies to look at, but I started with Apple Inc. ( fan here!). Mary and David mentioned in their book that Warren looked at 3 documents when it comes to picking stocks: the income statements, the balance sheet, and the cash flow. MSN Money had all 3 of these nicely laid out. I would first tackle the income statements. Different companies would have different numbers of reported years, so it was vital that I could capture all the available data.</p>
+						<h3>The Income Statement</h3>
+						<img src="http://events.lvtran.com/wp-content/uploads/2014/07/Screen-Shot-2014-07-15-at-10.39.01-AM.png" alt="Screen Shot 2014-07-15 at 10.39.01 AM" width="1000" height="652" class="aligncenter size-full wp-image-274" /><p>Thank to the powerful web-interacting library <a href="http://splinter.cobrateam.info/" target="_blank">Splinter</a>, I just needed to find the appropriate CSS tag by inspecting each elements. With Chrome's inspection tool, I saw that all the information I needed only used 3 type of CSS tags, so I used Splinter to query all the elements and categorized them into 3 according lists. After some simple string processing in the Python script, I ended up with an organized string that contained all the information I needed to evaluate a company.</p>
+						<table align="center">
+						<tr><td>Total revenue</td><td>    Income from selling goods before any deduction</td></tr>
+						<tr><td>Cost of revenue</td><td>    Cost of goods sold</td></tr>
+						<tr><td>Gross profit</td><td>    Revenue minus cost of revenue</td></tr>
+						<tr><td>Profit margin</td><td>    Gross profit to total revenue ratio</td></tr>
+						<tr><td>SG&A</td><td>    Selling, general, & admin: Salaries, ads, operating expenses, etc</td></tr>
+						<tr><td>R&D</td><td>    Research & development: fund used to innovate</td></tr>
+						<tr><td>Operating expenses</td><td>    Cost of running a business</td></tr>
+						<tr><td>Operating income</td><td>    Income after depreciation and operating expenses, before interest and tax</td></tr>
+						<tr><td>Net interest income&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            </td><td>    Interest on assets minus interest on liabilities</td></tr>
+						<tr><td>Other</td><td>    Misc.</td></tr>
+						<tr><td>Pretax income</td><td>    Income after depreciation, operating expenses, interest, before tax</td></tr>
+						<tr><td>Net income</td><td>    Income after all deductions (bring-home money)</td></tr>
+						<tr><td>Dividend per share</td><td>    How much a shareholder gets paid for each share owned</td></tr>
+						</table><br>
+						<p>Since I am planning to take a step further by mining all these information for filtering later, I will limit to only a few crucial parts on the Income Statement. There will be a need for an efficient algorithm later on for searching for companies that pass certain constraints (ex: find all companies whose profit margin exceeds 38%).</p>
+						<img src="http://events.lvtran.com/wp-content/uploads/2014/07/Screen-Shot-2014-07-16-at-10.52.31-AM.png" alt="Screen Shot 2014-07-16 at 10.52.31 AM" width="1000" height="1200" class="aligncenter size-full wp-image-281" />
+						<p>Expecting the data influx from thousands of different companies, I decided to limit the available search categories down to only 'average profit margin' and 'average net income percentage'. These numbers, along with their associated company sticker, were then written to another text file. This alleviated a lot of pressure on searching through thousands of data points, while not sacrificing too much accuracy.</p>
+						<img src="http://events.lvtran.com/wp-content/uploads/2014/07/Screen-Shot-2014-07-16-at-12.06.18-PM.png" alt="Screen Shot 2014-07-16 at 12.06.18 PM" width="1000" height="310" class="aligncenter size-full wp-image-285" />
+						<h3>The Balance Sheet</h3>
+						<p>To be continued.</p>
 					</div>
 				</div>
 			</a>
