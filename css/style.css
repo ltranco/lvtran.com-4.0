@@ -193,6 +193,12 @@ p.subline{
 	padding-left: 10%;
 }
 
+.project-descr-full-content h4{
+	padding-left: 10%;
+	font-size: 10px;
+	padding-bottom: 10px;
+}
+
 /* Controlling text content */
 .project-descr-full-content img{
 	padding-left: 10%;
