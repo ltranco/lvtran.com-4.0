@@ -199,6 +199,10 @@ p.subline{
 	padding-bottom: 10px;
 }
 
+.project-descr-full-content li{
+	padding-left: 10%;
+}
+
 /* Controlling text content */
 .project-descr-full-content img{
 	padding-left: 10%;
@@ -361,4 +365,12 @@ p.subline{
 .reference span.right_ab{
 	position:absolute;
 	right:4px;
+}
+
+.caption {
+	padding-left: 10%;
+}
+
+.caption p{
+	padding-left: 10%;
 }
