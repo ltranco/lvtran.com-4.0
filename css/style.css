@@ -163,6 +163,7 @@ p.subline{
 }
 .project-descr{
 	display:none;
+	background-color: red;
 }
 .project-descr-full{
 	background:#fff;
