@@ -337,6 +337,12 @@ p.subline{
 	background: transparent url(../images/loading-small.gif) no-repeat center center;
 	display:none;
 }
+
+.resume {
+	padding-left: 25%;
+	padding-top: 2%;
+}
+
 /* Footer Style */
 .reference{
 	position:relative;
