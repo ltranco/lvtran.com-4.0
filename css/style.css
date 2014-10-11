@@ -343,6 +343,11 @@ p.subline{
 	padding-top: 2%;
 }
 
+.history {
+	padding-left: 5%;
+	padding-top: 3%;
+}
+
 /* Footer Style */
 .reference{
 	position:relative;
