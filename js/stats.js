@@ -82,10 +82,47 @@ function drawChart() {
     width: 600,
     height: 300,
     pieSliceText: 'none',
-    colors: ['#02FF00', '#FE40FF', '#3D9971', '#997C3D', '#40FFE2', '#FFE200']
+    colors: ['#FF5400', '#40FFBA', '#14CC55']
   };
   var chart5 = new google.visualization.PieChart(document.getElementById('misc'));
   chart5.draw(data5, options5);
+
+  var data6 = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Xcode', 6],
+          ['Vim', 5],
+          ['git', 5],
+          ['FileZilla', 4],
+          ['gdb', 2],
+          ['valgrind', 2]
+        ]);
+  var options6 = {
+    title: 'Tools',
+    pieHole: 0.2,
+    width: 600,
+    height: 300,
+    pieSliceText: 'none',
+    colors: ['#02FF00', '#FE40FF', '#3D9971', '#997C3D', '#40FFE2', '#FFE200']
+  };
+  var chart6 = new google.visualization.PieChart(document.getElementById('tool'));
+  chart6.draw(data6, options6);
+
+  var data7 = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Python', 6],
+          ['C', 4],
+          ['Java', 5]
+        ]);
+  var options7 = {
+    title: 'Main Stack',
+    pieHole: 0.2,
+    width: 600,
+    height: 300,
+    pieSliceText: 'none',
+    colors: ['#0082FF', '#FF9F40', '#CC5514']
+  };
+  var chart7 = new google.visualization.PieChart(document.getElementById('mainstack'));
+  chart7.draw(data7, options7);
 }
 
 
